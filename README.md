@@ -10,4 +10,4 @@ Getting_Cleaning_Data Course Project
 
 #####into a tidy data set as described in the CodeBook(CodeBook.md).
 
-#####The R script, run_analysis.R, generates a text file (tidy_data.txt), containing the tidy data set.
+#####The R script, run_analysis.R, generates a text file (tidy_data.txt), containing the tidy data set which is placed in #####the working directory.
