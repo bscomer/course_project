@@ -121,59 +121,59 @@ std() variables.
 ##Transformations:
 
 1. Reading data (measurements, variable information, subject information, and 
-activity information) into R and merging training and test sets.
-    a. Data read into R using read.table()
-        i. X_train<-training data set
-        ii. subject_train<-training set subject information
-        iii. y_train<-training set activity information
-        iv. X_test<-test data set
-        v.subject_test<-test set subject information
-        vi. y_test<-test set activity information
-    b. Data tables merged using rbind()
-        i. merged_data<- Merged training and test data sets
-        ii. merged_subject<- Merged training and test set subject information
-        iii. merged_activity <- Merged training and test set activity information
+activity information) into R from working directory and merging training and test sets.
+ - Data read into R using read.table()
+ 	- X_train<-training data set
+        - subject_train<-training set subject information
+        - y_train<-training set activity information
+        - X_test<-test data set
+        - subject_test<-test set subject information
+        - y_test<-test set activity information
+ - Data tables merged using rbind()
+        - merged_data<- Merged training and test data sets
+        - merged_subject<- Merged training and test set subject information
+        - merged_activity <- Merged training and test set activity information
 2. Extracting mean and standard deviation measurements. 
-   * Note: Requires package "gtools"
-    a. Generate index of columns containing mean and standard deviations
-        i. grep() to index columns containing "mean()" as mean_index
-        ii. grep() to index columns containing "std()" as std_index
-        iii. mixedsort() - (from gtools package) to concatenate mean_index
+ * Note: Requires package "gtools"
+ - Generate index of columns containing mean and standard deviations
+ 	- grep() to index columns containing "mean()" as mean_index
+ 	- grep() to index columns containing "std()" as std_index
+ 	- mixedsort() - (from gtools package) to concatenate mean_index
 			and std_index as feature_index
-    b. Subset mean and std columns using feature_index as indexing reference
-      i. Yields mean_std_subset data table
+ - Subset mean and std columns using feature_index as indexing reference
+ 	- Yields mean_std_subset data table
 3. Add descriptive data labels to data table and labels data set appropriately
-    a. Add empty second column for activity labels to merged_activity index 
+ - Add empty second column for activity labels to merged_activity index 
         table
-    b. Add activity labels to merged_activity index table in column 2
-    c. Use cbind() to merge column 2 from merged_activity with mean_std_subset
-      i. Yields activities_mean_std_subset table
-    d. Use colnames() to subset column names as good_syntax
-    e. Use make.names() to correct syntax in good_syntax
-    f. Create index of activity labels from dataset_features called 
+ - Add activity labels to merged_activity index table in column 2
+ - Use cbind() to merge column 2 from merged_activity with mean_std_subset
+ 	- Yields activities_mean_std_subset table
+ - Use colnames() to subset column names as good_syntax
+ - Use make.names() to correct syntax in good_syntax
+ - Create index of activity labels from dataset_features called 
                 indexed_activity_label
-    g. Create a vector called activity_label_index_vector of descriptive 	
+ - Create a vector called activity_label_index_vector of descriptive 	
                 activity labels using as.vector() and indexed_activity_label 
                 column 2 
-    h. Added "Activity" label to head of activity_label_index_vector using 
+ - Added "Activity" label to head of activity_label_index_vector using 
                 c() and named resulting vector updated_activity_label_index_vector
-    i. Used colnames() and updated_activity_label_index_vector to rename 		
+ - Used colnames() and updated_activity_label_index_vector to rename 		
                 columns with descriptive labels for activities and statistic 
                 variable labels
-    j. Used cbind() to merge subject information to data table called 		
+ - Used cbind() to merge subject information to data table called 		
                 clean_data containing activities and statistic variable labels 			
                 using merged_subject index and activities_mean_std_subset data 		
                 table.
-    k. Add heading "Subject" to column V1 of clean_data using colNames().
-4. Generate data table with average of each variable and each subject and export that data table as the text               
-        file tidy_data.txt in working directory. 
-   * Note requires package "dplyr"
-    a. Use ddplyr to split the data table by the variables "subject" and "activity", and apply the         
+ - Add heading "Subject" to column V1 of clean_data using colNames().
+4. Generate data table with average of each variable and each subject and export that data table as the text             file tidy_data.txt in working directory. 
+ * Note requires package "dplyr"
+ 
+ - Use ddplyr to split the data table by the variables "subject" and "activity", and apply the         
                 function numcolwise(mean) to generate mean_results_summary
-    b. Use write.table() to export mean_results_summary as tidy_data.txt in working directory
-        i. row.names=FALSE
-        ii. sep = " " is default argument and thus not listed in code
-    c. Use view() to output data table to R for researcher to view on screen.
+ - Use write.table() to export mean_results_summary as tidy_data.txt in working directory
+  	- row.names=FALSE
+  	- sep = " " is default argument and thus not listed in code
+ - Use view() to output data table to R for researcher to view on screen.
 	
 	
 
