@@ -16,6 +16,7 @@ Mean_results_summary contains averages of mean and standard deviation variables 
 subject and activity.  Exported text file contains mean_results_summary data table and is
 labeled tidy_data.txt in the working directory.
 
+##R Version: 3.2.1 (2015-06-18)
 
 ##Data Source URL: 
 <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip> 
