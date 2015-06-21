@@ -38,7 +38,9 @@ source includes the raw data and processed data. Data were processed as
 described feature_info.txt, which is provided with the original data set.  Raw 
 inertia data is provided in subdirectories in 
 /UCI HAR Dataset/test/Inertia Signals and /UCI Har Dataset/train/Inertia Signals
-but this is not required for run_analysis.R data transformation.
+but this is not required for run_analysis.R data transformation.  
+
+###### Note: Data features were normalized and bounded within [-1,1] in the source data set.
 
 ##Required data directory structure:
 Source data must be downloaded and extracted as provided into the working 
